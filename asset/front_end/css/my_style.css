@@ -1,0 +1,32 @@
+.my_menu{
+    height: 50px; 
+    border: 1px solid;
+}
+.my_header{
+    height: 250px;
+    border: 1px solid;
+}
+.my_content{
+    height: 600px;
+    border: 1px solid;
+}
+.my_category_one{
+    height: 50px;
+    border: 1px solid;
+}
+.my_category_two{
+    height: 250px;
+    border: 1px solid;   
+}
+.my_bigfooter{
+    height: 300px;
+    border: 1px solid;
+}
+.my_sub_big_footer{
+    height: 150px;
+    border: 1px solid;
+}
+.my_footer{
+    height: 40px;
+    border: 1px solid;
+}
