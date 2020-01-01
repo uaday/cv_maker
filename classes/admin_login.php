@@ -21,7 +21,15 @@ class Slogin {
                 $_SESSION['login_id'] = $login_info['login_id'];
                 $_SESSION['user_name'] = $login_info['user_name'];
                 $_SESSION['type'] = $login_info['type'];
-                if ($login_info['type'] == 'A' || $login_info['type'] == 'a') {
+                if( $login_info['type'] == 'O' || $login_info['type'] == 'o'){
+                    $query2 = "SELECT * FROM tbl_organization WHERE id='$login_info[tbl_organization_id]'";
+                    $organization_result =  mysqli_fetch_assoc(mysqli_query($this->conn,$query2));
+                    if($organization_result){
+                        $_SESSION['organization'] = $organization_result['name'];
+                    }
+                }
+
+                if ($login_info['type'] == 'A' || $login_info['type'] == 'a'|| $login_info['type'] == 'O' || $login_info['type'] == 'o') {
                     header('Location: dashboard.php');
                 }
             } else {

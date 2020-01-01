@@ -11,7 +11,7 @@ if(isset($_SESSION['login_id']))
     if($login_id!=NULL)
     {
         
-       if($_SESSION['type']=='a'||$_SESSION['type']=='A')
+       if($_SESSION['type']=='a'||$_SESSION['type']=='A'|| $_SESSION['type']=='O'|| $_SESSION['type']=='o')
         {
             header('Location: dashboard.php');
         }
@@ -36,7 +36,7 @@ if(isset($_SESSION['login_id']))
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cv Maker</title>
+    <title>Cv Maker </title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../asset/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

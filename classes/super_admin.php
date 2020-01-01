@@ -15,6 +15,7 @@ class Super_Admin
         unset($_SESSION['login_id']);
         unset($_SESSION['user_name']);
         unset($_SESSION['type']);
+        unset($_SESSION['organization']);
         header('Location: index.php');
     }
 
@@ -23,6 +24,14 @@ class Super_Admin
     public function select_request_contact()
     {
         $query = "SELECT * FROM tbl_contact_request";
+        mysqli_query($this->conn,"set character_set_results='utf8'");
+        $result = mysqli_query($this->conn,$query);
+        return $result;
+    }
+
+    public function select_all_organization()
+    {
+        $query = "SELECT * FROM tbl_organization";
         mysqli_query($this->conn,"set character_set_results='utf8'");
         $result = mysqli_query($this->conn,$query);
         return $result;
@@ -51,6 +60,15 @@ class Super_Admin
         $query2 = "DELETE FROM tbl_contact_request WHERE request_id='$request_id'";
         if (mysqli_query($this->conn,$query2)) {
             return 'Contact Request Deleted Successful!!';
+        } else {
+            die('query problem' . mysql_error());
+        }
+    }
+    public function delete_organization($id)
+    {
+        $query2 = "DELETE FROM tbl_organization WHERE id='$id'";
+        if (mysqli_query($this->conn,$query2)) {
+            return 'Organization Successfully Deleted';
         } else {
             die('query problem' . mysql_error());
         }

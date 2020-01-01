@@ -26,7 +26,7 @@ if ($login_id == NULL) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cv Maker</title>
+    <title>Cv Maker <?php echo isset($_SESSION['organization'])?  $_SESSION['organization']: '' ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../asset/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -59,6 +59,10 @@ if ($login_id == NULL) {
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
+
+
+
+
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -78,7 +82,7 @@ if ($login_id == NULL) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="dashboard.php">Cv Maker</a>
+            <a class="navbar-brand" href="dashboard.php">Cv Maker <?php echo isset($_SESSION['organization'])?  ' | '.$_SESSION['organization']: '' ?></a>
         </div>
         <!-- /.navbar-header -->
 
@@ -116,7 +120,7 @@ if ($login_id == NULL) {
                     <li>
                         <a href="dashboard.php"><i class="fa fa-home fa-fw"></i> Home</a>
                     </li>
-
+                    <?php if($_SESSION['type'] == 'A'|| $_SESSION['type'] == 'a'){?>
                     <li>
                         <a href="organization.php"><i class="fa fa-home fa-fw"></i> Organization</a>
                     </li>
@@ -134,6 +138,13 @@ if ($login_id == NULL) {
                             </li>
                         </ul>
                     </li>
+                    <?php }?>
+
+                    <?php if($_SESSION['type']== 'o'|| $_SESSION['type'] == 'O') {?>
+                        <li>
+                            <a href="job_circular.php"><i class="fa fa-building"></i> Job Circular</a>
+                        </li>
+                    <?php }?>
 
 
                 </ul>
@@ -155,6 +166,8 @@ if ($login_id == NULL) {
             include './pages/edit_contact_content.php';
         } else if ($pages == 'organization') {
             include './pages/organization_content.php';
+        }else if($pages == 'job_circular'){
+            include './pages/job_circular_content.php';
         }
     } else {
         include './dashboard_content.php';
@@ -188,6 +201,10 @@ if ($login_id == NULL) {
 <script src="../asset/admin/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
 <script
     src="../asset/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+
+
 
 <script type="text/javascript">
     <!--
@@ -270,6 +287,10 @@ if ($login_id == NULL) {
             return false;
         }
     }
+
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
 </script>
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->

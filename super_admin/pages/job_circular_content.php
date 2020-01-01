@@ -10,16 +10,23 @@ $result = $obj_sup->select_all_organization();
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Organizations</h1>
+                <h1 class="page-header">Job Circular</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
         <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Post Job</button>
+            </div>
+
+        </div>
+
+        <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Organization List
+                        Circular List
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -85,4 +92,35 @@ $result = $obj_sup->select_all_organization();
 
     <div id="morris-donut-chart" class="hidden"></div>
 </div>
+
+
+<div  class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="job_name" class="col-form-label">Job Name:</label>
+                        <input type="text" class="form-control" id="job_name" name="job_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="summernote" class="col-form-label">Message:</label>
+                        <textarea  id="summernote" name="editordata"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
