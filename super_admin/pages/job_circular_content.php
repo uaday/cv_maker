@@ -3,6 +3,11 @@ if (isset($_GET['delete'])) {
     $message = $obj_sup->delete_organization($_GET['id']);
 
 }
+if(isset($_POST['submit_job']))
+{
+    $message=$obj_sup->insert_job_circular($_POST);
+}
+
 $result = $obj_sup->select_all_organization();
 ?>
 
@@ -96,9 +101,10 @@ $result = $obj_sup->select_all_organization();
 
 <div  class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
+        <form role="form"  action="#" method="post" enctype="multipart/form-data">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add New Job</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -108,18 +114,20 @@ $result = $obj_sup->select_all_organization();
                     <div class="form-group">
                         <label for="job_name" class="col-form-label">Job Name:</label>
                         <input type="text" class="form-control" id="job_name" name="job_name">
+                        <input type="hidden" class="form-control" id="job_name" name="organization_id" value="<?= $_SESSION['organization_id']?>">
                     </div>
                     <div class="form-group">
-                        <label for="summernote" class="col-form-label">Message:</label>
-                        <textarea  id="summernote" name="editordata"></textarea>
+                        <label for="summernote" class="col-form-label">Job Details:</label>
+                        <textarea  id="summernote" name="job_details"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
+                <button name="submit_job" type="submit" class="btn btn-primary">Send message</button>
             </div>
         </div>
+        </form>
     </div>
 </div>
 

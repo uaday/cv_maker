@@ -110,6 +110,16 @@ class Super_Admin
         return $result=mysqli_query($this->conn,$query);
     }
 
+    public function insert_job_circular($data){
+
+        $job_description = $this->conn->real_escape_string($data['job_details']);
+        $sql="INSERT INTO tbl_job_circular(job_name,tbl_organization_id,job_description,skill_tag) VALUES ('$data[job_name]','$data[organization_id]' ,  '$job_description'  , '' )";
+        if(mysqli_query($this->conn,$sql)) {
+            $message = 'Job Circular successfully added';
+            return $message;
+        }
+
+    }
 
 } 
 ?>

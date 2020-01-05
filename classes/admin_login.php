@@ -26,6 +26,8 @@ class Slogin {
                     $organization_result =  mysqli_fetch_assoc(mysqli_query($this->conn,$query2));
                     if($organization_result){
                         $_SESSION['organization'] = $organization_result['name'];
+                        $_SESSION['organization_id'] = $organization_result['id'];
+
                     }
                 }
 
