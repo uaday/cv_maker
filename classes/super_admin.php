@@ -112,13 +112,45 @@ class Super_Admin
 
     public function insert_job_circular($data){
 
+
         $job_description = $this->conn->real_escape_string($data['job_details']);
         $sql="INSERT INTO tbl_job_circular(job_name,tbl_organization_id,job_description,skill_tag) VALUES ('$data[job_name]','$data[organization_id]' ,  '$job_description'  , '' )";
         if(mysqli_query($this->conn,$sql)) {
-            $message = 'Job Circular successfully added';
-            return $message;
-        }
+            $_SESSION['message'] = 'Job Circular successfully added';
 
+        }
+//        header('Location: http://localhost:8080/CvMaker/super_admin/job_circular.php');
+    }
+
+    public function select_all_job_circular()
+    {
+        $query = "SELECT * FROM tbl_job_circular where tbl_organization_id='$_SESSION[organization_id]'";
+        mysqli_query($this->conn,"set character_set_results='utf8'");
+        $result = mysqli_query($this->conn,$query);
+        return $result;
+    }
+
+    public function select_all_job_circular_by_organization($organization_id)
+    {
+        $query = "SELECT * FROM tbl_job_circular where tbl_organization_id='$organization_id'";
+        mysqli_query($this->conn,"set character_set_results='utf8'");
+        $result = mysqli_query($this->conn,$query);
+        return $result;
+    }
+    public function find_organization_info($organization_id)
+    {
+        $query = "SELECT * FROM tbl_organization where id='$organization_id'";
+        mysqli_query($this->conn,"set character_set_results='utf8'");
+        $result = mysqli_query($this->conn,$query);
+        return $result;
+    }
+
+    public function find_job_info($job_id)
+    {
+        $query = "SELECT * FROM tbl_job_circular where id='$job_id'";
+        mysqli_query($this->conn,"set character_set_results='utf8'");
+        $result = mysqli_query($this->conn,$query);
+        return $result;
     }
 
 } 
