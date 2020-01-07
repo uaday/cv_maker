@@ -579,12 +579,20 @@ class Application
     }
 
     public  function  add_job_application($job_id, $template_id){
-        $sql="INSERT INTO tbl_job_application(tbl_job_circular_id,tbl_login_id,rating) VALUES('$job_id','' ,  '$_SESSION[login_id]'  ,   '$template_id' )";
+        $login_id = $_SESSION['login_id'];
+        $sql="INSERT INTO tbl_job_application(tbl_job_circular_id,tbl_login_id,rating,template) VALUES('$job_id' , '$login_id' , '20.5',  '$template_id' )";
         if(mysqli_query($this->conn,$sql)){
             $_SESSION['message'] = 'Job successfully applied!';
-            header('Location: dashboard.php');
+            header('Location: ../list_applied_job.php');
         }
+        
+    }
 
+    public function find_all_applied_job($login_id)
+    {
+        $query="SELECT jc.*,o.* FROM tbl_job_application ja,tbl_organization o,tbl_job_circular jc  WHERE ja.tbl_job_circular_id=jc.id and jc.tbl_organization_id = o.id  and ja.tbl_login_id='$login_id'";
+        $result=mysqli_query($this->conn,$query);
+        return $result;
     }
 
 

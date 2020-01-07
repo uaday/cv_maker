@@ -23,9 +23,9 @@ $row=mysqli_fetch_assoc($result);
 
     </div>
     <div class="col-md-3 my_body">
-        <a href="#"  style="align-content: center" >
-            <img class="center-block" src="asset/front_end/contact/img/icon/59100-200.png" style="height: 200px; width: 230px;">
-            <h3 class="text-center"  >Download</h3></a>
+        <a href="list_applied_job.php"  style="align-content: center" >
+            <img class="center-block" src="asset/front_end/contact/img/icon/list_job.png" style="height: 200px; width: 230px;">
+            <h3 class="text-center"  >Applied Job</h3></a>
     </div>
     <div class="col-md-3 my_body">
         <a href="preview.php"  >

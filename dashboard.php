@@ -424,6 +424,8 @@ if (isset($pages)) {
         include "pages/profile_content.php";
     } else if ($pages == 'edit') {
         include "pages/edit_content.php";
+    } else if ($pages == 'list_applied_job') {
+        include "pages/list_applied_job_content.php";
     }
 } else {
     include 'pages/dashboard_content.php';
