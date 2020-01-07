@@ -578,5 +578,14 @@ class Application
         return $result;
     }
 
+    public  function  add_job_application($job_id, $template_id){
+        $sql="INSERT INTO tbl_job_application(tbl_job_circular_id,tbl_login_id,rating) VALUES('$job_id','' ,  '$_SESSION[login_id]'  ,   '$template_id' )";
+        if(mysqli_query($this->conn,$sql)){
+            $_SESSION['message'] = 'Job successfully applied!';
+            header('Location: dashboard.php');
+        }
+
+    }
+
 
 }

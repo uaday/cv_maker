@@ -19,6 +19,12 @@ if ($login_id == NULL) {
     header('Location:../index.php');
 }
 
+if(isset($_POST['apply_job'])){
+    $obj_app->add_job_application($_SESSION['applying_job_id'], 't1');
+}
+
+
+
 $result=$obj_app->select_basic();
 $row=  mysqli_fetch_assoc($result);
 
@@ -339,6 +345,16 @@ $row_qualification2=  mysqli_fetch_assoc($result_qualification2);
             </nav>
         </div>
     </div>
+</div>
+<div class="row text-center">
+    <?php if(isset($_SESSION['applying_job_id']) && isset($_SESSION['applying_organization_id'])){?>
+        <h3>Apply <?= $_SESSION['applying_job_name']?> job at <?= $_SESSION['applying_organization_name']?> using this cv.</h3>
+        <form action="#" method="post">
+            <button type="submit" name="apply_job" value="apply_job" class="btn btn-primary">APPLY</button>
+        </form>
+        <br>
+        <br>
+    <?php }?>
 </div>
 <div class="row">
     <div class="col-md-offset-8 col-md-4">

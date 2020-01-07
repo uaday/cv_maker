@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 05, 2020 at 09:43 PM
+-- Generation Time: Jan 07, 2020 at 12:12 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -138,6 +138,22 @@ INSERT INTO `tbl_experience` (`exp_id`, `job_title`, `desig`, `org`, `sdate`, `e
 (20, 'Software Developer', 'Software Engineer', 'XYZ', '2016-01-01', '2016-09-01', 'N/A', 23),
 (21, 'aa', 'sadsda', 'sadsad', '2016-09-15', '2016-09-29', 'dadsa', 24),
 (22, 'Full time', 'Wed developer', 'Abc company', '2018-01-01', '2019-01-01', 'Web develop', 26);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_job_application`
+--
+
+CREATE TABLE `tbl_job_application` (
+  `id` bigint(20) NOT NULL,
+  `tbl_job_circular_id` bigint(20) NOT NULL,
+  `tbl_login_id` bigint(20) NOT NULL,
+  `rating` double(2,2) NOT NULL,
+  `comments` text NOT NULL,
+  `created_on` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -317,6 +333,12 @@ ALTER TABLE `tbl_experience`
   ADD PRIMARY KEY (`exp_id`);
 
 --
+-- Indexes for table `tbl_job_application`
+--
+ALTER TABLE `tbl_job_application`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_job_circular`
 --
 ALTER TABLE `tbl_job_circular`
@@ -385,6 +407,12 @@ ALTER TABLE `tbl_education`
 --
 ALTER TABLE `tbl_experience`
   MODIFY `exp_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `tbl_job_application`
+--
+ALTER TABLE `tbl_job_application`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_job_circular`

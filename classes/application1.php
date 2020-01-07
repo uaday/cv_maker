@@ -325,6 +325,10 @@ class Application
     {
         unset($_SESSION['login_id']);
         unset($_SESSION['name']);
+        unset($_SESSION['applying_job_id']);
+        unset($_SESSION['applying_job_name']);
+        unset($_SESSION['applying_organization_id']);
+        unset($_SESSION['applying_organization_name']);
         header('Location:../index.php');
     }
     public function select_profile($a)

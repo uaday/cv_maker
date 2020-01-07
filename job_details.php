@@ -1,8 +1,22 @@
 <?php
+session_start();
 require_once './classes/super_admin.php';
 $obj_sup = new Super_Admin();
 $result = mysqli_fetch_assoc($obj_sup->find_job_info($_GET['job_id']));
 $result2 = mysqli_fetch_assoc($obj_sup->find_organization_info($_GET['organization_id']));
+
+if(isset($_POST['apply'])){
+    $_SESSION['applying_job_id'] = $_POST['job_id'];
+    $_SESSION['applying_job_name'] = $_POST['job_name'];
+    $_SESSION['applying_organization_id'] = $_POST['organization_id'];
+    $_SESSION['applying_organization_name'] = $_POST['organization_name'];
+    $admin_id = $_SESSION['login_id'];
+    if ($admin_id != NULL) {
+        header('Location: dashboard.php');
+    }else {
+        header('Location: login.php');
+    }
+}
 
 
 ?>
@@ -70,6 +84,14 @@ $result2 = mysqli_fetch_assoc($obj_sup->find_organization_info($_GET['organizati
                 <br>
 
                 <div><?= $result['job_description']?></div>
+
+                <form action="#" method="post">
+                    <input type="hidden" name="job_id" id="job_id" value="<?= $result['id']?>">
+                    <input type="hidden" name="job_name" id="job_name" value="<?= $result['job_name']?>">
+                    <input type="hidden" name="organization_id" id="organization_id" value="<?= $result2['id']?>">
+                    <input type="hidden" name="organization_name" id="organization_name" value="<?= $result2['name']?>">
+                    <input class="btn btn-primary" type="submit" value="Apply" name="apply" >
+                </form>
 
             </div>
         </div>
