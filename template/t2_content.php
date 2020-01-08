@@ -25,9 +25,7 @@ if ($login_id == NULL) {
     header('Location:../index.php');
 }
 
-if(isset($_POST['apply_job'])){
-    $obj_app->add_job_application($_SESSION['applying_job_id'], 't2');
-}
+
 
 $result=$obj_app->select_basic($login_id);
 $row=  mysqli_fetch_assoc($result);
@@ -70,6 +68,36 @@ $result_qualification2=$obj_app->select_qualification2($login_id);
 $row_qualification2=  mysqli_fetch_assoc($result_qualification2);
 
 
+$rating = 0;
+if($row){
+    $rating = $rating+ 5;
+}
+if($row_education){
+    $rating = $rating+ 10;
+}if($row_education1){
+    $rating = $rating+ 10;
+}if($row_education2){
+    $rating = $rating+ 10;
+}if($row_exprience){
+    $rating = $rating+ 10;
+}if($row_exprience1){
+    $rating = $rating+ 10;
+}if($row_exprience2){
+    $rating = $rating+ 10;
+}if($row_reference){
+    $rating = $rating+ 10;
+}if($row_reference1){
+    $rating = $rating+ 10;
+}if($row_qualification){
+    $rating = $rating+ 5;
+}if($row_qualification1){
+    $rating = $rating+ 5;
+}if($row_qualification2){
+    $rating = $rating+ 5;
+}
+if(isset($_POST['apply_job'])){
+    $obj_app->add_job_application($_SESSION['applying_job_id'], 't2',$rating);
+}
 ?>
 
 <html>
@@ -365,6 +393,7 @@ $row_qualification2=  mysqli_fetch_assoc($result_qualification2);
         </div>
     </div>
 </div>
+
 <div class="container" >
     <div >
         <div class="panel panel-default">
@@ -388,31 +417,31 @@ $row_qualification2=  mysqli_fetch_assoc($result_qualification2);
                             <h4><strong>Career Objective:</strong></h4><br>
                         </div>
                         <p>To secure a position where I can efficiently contribute my skills and abilities for the growth of the organization and build my professional career.</p>
-                        
-                         <div >
+
+                        <div >
                             <br><h4><strong>Educational Background:</strong></h4>
                         </div>
                         <h5><strong><?php echo $row_education['name_of_degree'] ?></strong></h5>
                         <p>CGPA :  <?php echo  $row_education['cgpa']?></p>
                         <p>Passing Year: <?php echo  $row_education['passing_year']?></p>
                         <p><?php echo  $row_education['instituation']?></p><br>
-                        
-                        <?php  if($row_education1['name_of_degree']!=NULL) {  ?>
-                        
-                        <h5><strong><?php echo $row_education1['name_of_degree'] ?></strong></h5>
-                        <p>CGPA :  <?php echo  $row_education1['cgpa']?></p>
-                        <p>Passing Year: <?php echo  $row_education1['passing_year']?></p>
-                        <p><?php echo  $row_education1['instituation']?></p><br>
-                       <?php  }    if($row_education2['name_of_degree']!=NULL) {  ?>
-                        
-                        
-                             <h5><strong><?php echo $row_education2['name_of_degree'] ?></strong></h5>
-                        <p>CGPA :  <?php echo  $row_education2['cgpa']?></p>
-                        <p>Passing Year: <?php echo  $row_education2['passing_year']?></p>
-                        <p><?php echo  $row_education2['instituation']?></p><br>
-                       <?php  } ?>
-                        
-                        
+
+                        <?php if(isset($row_education1))  if($row_education1['name_of_degree']!=NULL) {  ?>
+
+                            <h5><strong><?php echo $row_education1['name_of_degree'] ?></strong></h5>
+                            <p>CGPA :  <?php echo  $row_education1['cgpa']?></p>
+                            <p>Passing Year: <?php echo  $row_education1['passing_year']?></p>
+                            <p><?php echo  $row_education1['instituation']?></p><br>
+                        <?php  }  if(isset($row_education2))  if($row_education2['name_of_degree']!=NULL) {  ?>
+
+
+                            <h5><strong><?php echo $row_education2['name_of_degree'] ?></strong></h5>
+                            <p>CGPA :  <?php echo  $row_education2['cgpa']?></p>
+                            <p>Passing Year: <?php echo  $row_education2['passing_year']?></p>
+                            <p><?php echo  $row_education2['instituation']?></p><br>
+                        <?php  } ?>
+
+
                         <div>
                             <h4><strong>Work Experience</strong></h4><br>
                         </div>
@@ -420,41 +449,41 @@ $row_qualification2=  mysqli_fetch_assoc($result_qualification2);
                         <p>Work as a <?php echo  $row_exprience['desig']?></p>
                         <p>Since <?php echo  $row_exprience['sdate']?></p>
                         <p><?php echo  $row_exprience['job_des']?><br>
-                         </p><br>
-                        
-                        <?php  if($row_exprience1['org']!=NULL)  { ?>
+                        </p><br>
+
+                        <?php if(isset($row_exprience1))  if($row_exprience1['org']!=NULL)  { ?>
                             <h5><strong><?php echo  $row_exprience1['org'] ?></strong></h5>
-                        <p>Work as a <?php echo  $row_exprience1['desig']?></p>
-                        <p>Since <?php echo  $row_exprience1['sdate']?></p>
-                        <p><?php echo  $row_exprience1['job_des']?><br>
-                         </p><br>
-                        <?php }  if($row_exprience2['org']!=NULL)  {   ?>
-                        
+                            <p>Work as a <?php echo  $row_exprience1['desig']?></p>
+                            <p>Since <?php echo  $row_exprience1['sdate']?></p>
+                            <p><?php echo  $row_exprience1['job_des']?><br>
+                            </p><br>
+                        <?php } if(isset($row_exprience2))  if($row_exprience2['org']!=NULL)  {   ?>
+
                             <h5><strong><?php echo  $row_exprience2['org'] ?></strong></h5>
-                        <p>Work as a <?php echo  $row_exprience2['desig']?></p>
-                        <p>Since <?php echo  $row_exprience2['sdate']?></p>
-                        <p><?php echo  $row_exprience2['job_des']?><br>
-                         <br></p><br>
+                            <p>Work as a <?php echo  $row_exprience2['desig']?></p>
+                            <p>Since <?php echo  $row_exprience2['sdate']?></p>
+                            <p><?php echo  $row_exprience2['job_des']?><br>
+                                <br></p><br>
                         <?php  } ?>
-                        
-                        
-                    <div >
+
+
+                        <div >
                             <h4><strong>Achievements:</strong></h4><br>
                         </div>
-                       
-                          <h5><strong><?php echo  $row_qualification['qualification'] ?></strong></h5>
-                       
-                            <?php  if($row_qualification1['qualification']!=NULL)  {  ?>
-                          <h5><strong><?php echo  $row_qualification1['qualification'] ?></strong></h5>
-                       
-                            <?php  } if($row_qualification2['qualification']!=NULL)  {  ?>
-                            
-                               <h5><strong><?php echo  $row_qualification2['qualification'] ?></strong></h5>
+
+                        <h5><strong><?php echo  $row_qualification['qualification'] ?></strong></h5>
+
+                        <?php if(isset($row_qualification1))  if($row_qualification1['qualification']!=NULL)  {  ?>
+                            <h5><strong><?php echo  $row_qualification1['qualification'] ?></strong></h5>
+
+                        <?php  } if(isset($row_qualification2)) if($row_qualification2['qualification']!=NULL)  {  ?>
+
+                            <h5><strong><?php echo  $row_qualification2['qualification'] ?></strong></h5>
                             <br>
-                            <?php  } ?>
-                                
-                            <br>
-                            <div >
+                        <?php  } ?>
+
+                        <br>
+                        <div >
                             <h4><strong>Personal info:</strong></h4><br>
                         </div>
                         <p>First Name: <?php echo $row['first_name'];?></p>
@@ -464,9 +493,9 @@ $row_qualification2=  mysqli_fetch_assoc($result_qualification2);
                         <p>Address: <?php echo $row['address']?></p>
                         <p>Gender: <?php echo $row['gender']?></p>
                         <p>Date Of Birth: <?php echo $row['dob']?></p>
-                        
+
                         <br>
-                        
+
                         <div >
                             <h4><strong>References:</strong></h4><br>
                         </div>
@@ -475,28 +504,30 @@ $row_qualification2=  mysqli_fetch_assoc($result_qualification2);
                         <p>Designation: <?php echo $row_reference['desig']?></p>
                         <p>Phone: <?php echo $row_reference['email']?></p>
                         <p>Email: <?php echo $row_reference['phone']?></p>
-                        
+
                         <br>
-                          <?php if($row_reference1['namee']!=NULL)  
-                          {
-                              ?>
-                        
-                        <p> Name: <?php echo $row_reference1 ['namee'];?></p>
-                        <p>Organization: <?php echo $row_reference1 ['org'];?></p>
-                        <p>Designation: <?php echo $row_reference1['desig']?></p>
-                        <p>Phone: <?php echo $row_reference1['email']?></p>
-                        <p>Email: <?php echo $row_reference1['phone']?></p>
-             <?php
+                        <?php if($row_reference1['namee']!=NULL)
+                        {
+                            ?>
+
+                            <p> Name: <?php echo $row_reference1 ['namee'];?></p>
+                            <p>Organization: <?php echo $row_reference1 ['org'];?></p>
+                            <p>Designation: <?php echo $row_reference1['desig']?></p>
+                            <p>Phone: <?php echo $row_reference1['email']?></p>
+                            <p>Email: <?php echo $row_reference1['phone']?></p>
+                            <?php
                         }  ?>
                         <br>
                         <br>
-                          
 
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+
 
 </body>
 </html>
