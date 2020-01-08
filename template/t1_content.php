@@ -9,7 +9,12 @@ require '../classes/application.php';
 require '../classes/login.php';
 $obj_login=new login();
 $obj_app=new Application();
-$login_id = $_SESSION['login_id'];
+if(isset($_SESSION['type'])){
+    $login_id = $_GET['applicant_id'];
+}else{
+    $login_id = $_SESSION['login_id'];
+
+}
 if (isset($_GET['status'])) {
     if (isset($_GET['logout']) == 'true') {
         $obj_app->logout();
@@ -25,44 +30,44 @@ if(isset($_POST['apply_job'])){
 
 
 
-$result=$obj_app->select_basic();
+$result=$obj_app->select_basic($login_id);
 $row=  mysqli_fetch_assoc($result);
 
-$resut_education=$obj_app->select_education();
+$resut_education=$obj_app->select_education($login_id);
 $row_education=  mysqli_fetch_assoc($resut_education);
 
-$resut_education1=$obj_app->select_education1();
+$resut_education1=$obj_app->select_education1($login_id);
 $row_education1=  mysqli_fetch_assoc($resut_education1);
 
-$resut_education2=$obj_app->select_education2();
+$resut_education2=$obj_app->select_education2($login_id);
 $row_education2=  mysqli_fetch_assoc($resut_education2);
 
 
-$result_exprience=$obj_app->select_expreience();
+$result_exprience=$obj_app->select_expreience($login_id);
 $row_exprience=  mysqli_fetch_assoc($result_exprience);
 
 
-$result_exprience1=$obj_app->select_expreience1();
+$result_exprience1=$obj_app->select_expreience1($login_id);
 $row_exprience1=  mysqli_fetch_assoc($result_exprience1);
 
 
-$result_exprience2=$obj_app->select_expreience2();
+$result_exprience2=$obj_app->select_expreience2($login_id);
 $row_exprience2=  mysqli_fetch_assoc($result_exprience2);
 
 
-$result_reference=$obj_app->select_reference();
+$result_reference=$obj_app->select_reference($login_id);
 $row_reference=  mysqli_fetch_assoc($result_reference);
 
-$result_reference1=$obj_app->select_reference1();
+$result_reference1=$obj_app->select_reference1($login_id);
 $row_reference1=  mysqli_fetch_assoc($result_reference1);
 
-$result_qualification=$obj_app->select_qualification();
+$result_qualification=$obj_app->select_qualification($login_id);
 $row_qualification=  mysqli_fetch_assoc($result_qualification);
 
-$result_qualification1=$obj_app->select_qualification1();
+$result_qualification1=$obj_app->select_qualification1($login_id);
 $row_qualification1=  mysqli_fetch_assoc($result_qualification1);
 
-$result_qualification2=$obj_app->select_qualification2();
+$result_qualification2=$obj_app->select_qualification2($login_id);
 $row_qualification2=  mysqli_fetch_assoc($result_qualification2);
 
 
@@ -321,6 +326,7 @@ $row_qualification2=  mysqli_fetch_assoc($result_qualification2);
 
 </head>
 <body>
+<?if(!isset($_SESSION['type'])){?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 my_menu ">
@@ -346,8 +352,9 @@ $row_qualification2=  mysqli_fetch_assoc($result_qualification2);
         </div>
     </div>
 </div>
+<?php }?>
 <div class="row text-center">
-    <?php if(isset($_SESSION['applying_job_id']) && isset($_SESSION['applying_organization_id'])){?>
+    <?php if(isset($_SESSION['applying_job_id']) && isset($_SESSION['applying_organization_id']) && !isset($_SESSION['type'])){?>
         <h3>Apply <?= $_SESSION['applying_job_name']?> job at <?= $_SESSION['applying_organization_name']?> using this cv.</h3>
         <form action="#" method="post">
             <button type="submit" name="apply_job" value="apply_job" class="btn btn-primary">APPLY</button>
@@ -362,9 +369,10 @@ $row_qualification2=  mysqli_fetch_assoc($result_qualification2);
             <button type="submit" name="btn" class="btn btn-outline btn-primary  " style="width: 100px"
                     onclick="printContent('print')"><i class="fa fa-print"></i> Print
             </button>
-            <a type="button" class="btn btn-outline btn-success " style="width: 100px" href="../preview.php"><i class="fa fa-image"> Template</a>
-            <a type="button" class="btn btn-outline btn-warning " style="width: 100px" href="../edit.php"><i class="fa fa-edit"> Edit</a>
-
+            <?php if(!isset($_SESSION['type'])){?>
+                <a type="button" class="btn btn-outline btn-success " style="width: 100px" href="../preview.php"><i class="fa fa-image"> Template</a>
+                <a type="button" class="btn btn-outline btn-warning " style="width: 100px" href="../edit.php"><i class="fa fa-edit"> Edit</a>
+            <?php }?>
         </div>
     </div>
 </div>

@@ -55,6 +55,7 @@ if ($login_id == NULL) {
     <link href="../asset/admin/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
 
     <link rel="icon" href="../asset/front_end/img/title_logo/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -168,6 +169,8 @@ if ($login_id == NULL) {
             include './pages/organization_content.php';
         }else if($pages == 'job_circular'){
             include './pages/job_circular_content.php';
+        }else if($pages == 'job_applicant'){
+            include './pages/job_applicant_content.php';
         }
     } else {
         include './dashboard_content.php';
@@ -196,6 +199,7 @@ if ($login_id == NULL) {
 
 <!-- Custom Theme JavaScript -->
 <script src="../asset/admin/dist/js/sb-admin-2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-tagsinput@0.7.1/dist/bootstrap-tagsinput.min.js"></script>
 
 <!-- DataTables JavaScript -->
 <script src="../asset/admin/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>

@@ -72,10 +72,10 @@ $result = $obj_sup->select_all_job_circular();
                                         <td>
                                             <!-- /.panel-heading -->
                                             <div class="panel-body text-center" align="center">
-                                                <a style="margin-top: 10%" type="button" class="btn btn-warning btn-circle"
-                                                   href="?delete=true&id=<?php echo $row['id']; ?>"
-                                                   title="Delete" onclick="return check_delete_info();"><i
-                                                        class="glyphicon glyphicon-trash"></i>
+                                                <a style="margin-top: 10%" type="button" class="btn btn-success btn-circle"
+                                                   href="job_applicant.php?job_id=<?php echo $row['id']; ?>"
+                                                   title="Delete" ><i
+                                                        class="glyphicon glyphicon-list"></i>
                                                 </a>
 
                                                 <a style="margin-top: 10%" type="button" class="btn btn-primary btn-circle"
@@ -142,6 +142,14 @@ $result = $obj_sup->select_all_job_circular();
                         <input type="text" class="form-control" id="job_name" name="job_name">
                         <input type="hidden" class="form-control" id="job_name" name="organization_id" value="<?= $_SESSION['organization_id']?>">
                     </div>
+
+                    <div class="form-group">
+                        <label for="skills" class="col-form-label">Skills:</label>
+                        <br>
+                        <select class="form-control"  multiple="multiple" data-role="tagsinput" id="skills" name="skills[]">
+                        </select
+                    </div>
+
                     <div class="form-group">
                         <label for="summernote" class="col-form-label">Job Details:</label>
                         <textarea  id="summernote" name="job_details"></textarea>

@@ -111,10 +111,9 @@ class Super_Admin
     }
 
     public function insert_job_circular($data){
-
-
+        $skills = implode(",", $data['skills']);
         $job_description = $this->conn->real_escape_string($data['job_details']);
-        $sql="INSERT INTO tbl_job_circular(job_name,tbl_organization_id,job_description,skill_tag) VALUES ('$data[job_name]','$data[organization_id]' ,  '$job_description'  , '' )";
+        $sql="INSERT INTO tbl_job_circular(job_name,tbl_organization_id,job_description,skill_tag) VALUES ('$data[job_name]','$data[organization_id]' ,  '$job_description'  , '$skills' )";
         if(mysqli_query($this->conn,$sql)) {
             $_SESSION['message'] = 'Job Circular successfully added';
 
@@ -148,6 +147,17 @@ class Super_Admin
     public function find_job_info($job_id)
     {
         $query = "SELECT * FROM tbl_job_circular where id='$job_id'";
+        mysqli_query($this->conn,"set character_set_results='utf8'");
+        $result = mysqli_query($this->conn,$query);
+        return $result;
+    }
+
+    /**
+     * @return false|mysqli
+     */
+    public function select_all_job_applicant_list($job_id)
+    {
+        $query = "SELECT * FROM tbl_job_application ja, tbl_login l where ja.tbl_login_id = l.login_id and ja.tbl_job_circular_id = '$job_id' order by ja.rating desc ";
         mysqli_query($this->conn,"set character_set_results='utf8'");
         $result = mysqli_query($this->conn,$query);
         return $result;

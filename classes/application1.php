@@ -339,9 +339,9 @@ class Application
         $a1=  mysqli_query($this->conn,$sql);
         return $a1;
     }
-    public function  select_education()
+    public function  select_education($data)
     {
-        $data= $_SESSION['login_id'];
+
         $sql="SELECT * FROM tbl_education WHERE login_id=$data LIMIT 0,1 ";
         $a1=  mysqli_query($this->conn,$sql);
 //        echo '<pre>';
@@ -362,9 +362,8 @@ class Application
     }
 
 
-    public function  select_education2()
+    public function  select_education2($data)
     {
-        $data= $_SESSION['login_id'];
         $sql="SELECT * FROM tbl_education WHERE login_id=$data LIMIT 2,1 ";
         $a1=  mysqli_query($this->conn,$sql);
 //        echo '<pre>';
@@ -396,9 +395,8 @@ class Application
     }
 
 
-    public function  select_expreience2()
+    public function  select_expreience2($data)
     {
-        $data= $_SESSION['login_id'];
         $sql="SELECT * FROM tbl_experience WHERE login_id=$data LIMIT 2,1 ";
         $a1=  mysqli_query($this->conn,$sql);
 //        echo '<pre>';
@@ -417,9 +415,9 @@ class Application
 //        exit();
         return $a1;
     }
-    public function  select_reference1()
+    public function  select_reference1($data)
     {
-        $data= $_SESSION['login_id'];
+
         $sql="SELECT * FROM tbl_reference WHERE login_id=$data   LIMIT 1,1 ";
         $a1=  mysqli_query($this->conn,$sql);
 //        echo '<pre>';
@@ -428,9 +426,9 @@ class Application
         return $a1;
     }
 
-    public function  select_qualification()
+    public function  select_qualification($data)
     {
-        $data= $_SESSION['login_id'];
+
         $sql="SELECT * FROM tbl_qualification WHERE login_id=$data LIMIT 0,1 ";
         $a1=  mysqli_query($this->conn,$sql);
 //        echo '<pre>';
@@ -440,9 +438,8 @@ class Application
     }
 
 
-    public function  select_qualification1()
+    public function  select_qualification1($data)
     {
-        $data= $_SESSION['login_id'];
         $sql="SELECT * FROM tbl_qualification WHERE login_id=$data LIMIT 1,1 ";
         $a1=  mysqli_query($this->conn,$sql);
 //        echo '<pre>';
@@ -452,9 +449,8 @@ class Application
     }
 
 
-    public function  select_qualification2()
+    public function  select_qualification2($data)
     {
-        $data= $_SESSION['login_id'];
         $sql="SELECT * FROM tbl_qualification WHERE login_id=$data LIMIT 2,1 ";
         $a1=  mysqli_query($this->conn,$sql);
 //        echo '<pre>';
@@ -462,9 +458,8 @@ class Application
 //        exit();
         return $a1;
     }
-    public function  select_basic()
+    public function  select_basic($data)
     {
-        $data= $_SESSION['login_id'];
         $sql="SELECT * FROM tbl_basic WHERE login_id=$data ";
         $a1=  mysqli_query($this->conn,$sql);
 //        echo '<pre>';
