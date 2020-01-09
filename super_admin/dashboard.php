@@ -26,7 +26,7 @@ if ($login_id == NULL) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cv Maker <?php echo isset($_SESSION['organization'])?  $_SESSION['organization']: '' ?></title>
+    <title>Job Recruitment <?php echo isset($_SESSION['organization'])?  $_SESSION['organization']: '' ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../asset/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -83,7 +83,7 @@ if ($login_id == NULL) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="dashboard.php">Cv Maker <?php echo isset($_SESSION['organization'])?  ' | '.$_SESSION['organization']: '' ?></a>
+            <a class="navbar-brand" href="dashboard.php">Job Recruitment <?php echo isset($_SESSION['organization'])?  ' | '.$_SESSION['organization']: '' ?></a>
         </div>
         <!-- /.navbar-header -->
 

@@ -96,7 +96,7 @@ $result2 = mysqli_fetch_assoc($obj_sup->find_organization_info($_GET['organizati
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
-    <p> &copy; <?= date('Y') ?> Cv Maker</p>
+    <p> &copy; <?= date('Y') ?> Job Recruitment</p>
 
   </div>
 </footer>

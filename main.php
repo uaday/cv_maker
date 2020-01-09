@@ -15,7 +15,7 @@ $obj_app=new Application();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cv Maker</title>
+    <title>Job Recruitment</title>
     <link rel="stylesheet" type="text/css" href="asset/front_end/css/contact_style.css">
     <link rel="stylesheet" type="text/css" href="asset/front_end/contact/css/bootstrap.min.css">
     <script src="asset/front_end/contact/js/ajax_jquery.js"></script>

@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Cv Maker</title>
+    <title>Job Recruitment</title>
     <link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates:700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="asset/front_end/css/reset.css">
     <link rel='stylesheet prefetch'
@@ -35,7 +35,7 @@
 </div>
 
 <div class="hero">
-    <h1><u>Cv Maker</u></h1>
+    <h1><u>Job Recruitment</u></h1>
 </div>
 
 <canvas id="bubble"></canvas>

@@ -36,7 +36,7 @@ if (isset($_SESSION['login_id'])) {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Cv Maker</title>
+    <title>Job Recruitment</title>
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="asset/front_end/sign-up-login-form/css/normalize.css">

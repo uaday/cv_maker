@@ -104,7 +104,7 @@ if(isset($_POST['apply'])){
         <p class="float-right">
             <a href="#">Back to top</a>
         </p>
-        <p> &copy; <?= date('Y') ?> Cv Maker</p>
+        <p> &copy; <?= date('Y') ?> Job Recruitment</p>
 
     </div>
 </footer>

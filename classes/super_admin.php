@@ -109,6 +109,16 @@ class Super_Admin
         $query="SELECT count(*) cu FROM tbl_contact_request";
         return $result=mysqli_query($this->conn,$query);
     }
+    public function count_all_jobs()
+    {
+        $query="SELECT count(*) j FROM tbl_job_circular";
+        return $result=mysqli_query($this->conn,$query);
+    }
+    public function count_all_jobs_applicant()
+    {
+        $query="SELECT count(*) ja FROM tbl_job_application";
+        return $result=mysqli_query($this->conn,$query);
+    }
 
     public function insert_job_circular($data){
         $skills = implode(",", $data['skills']);

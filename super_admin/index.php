@@ -36,7 +36,7 @@ if(isset($_SESSION['login_id']))
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cv Maker </title>
+    <title>Job Recruitment</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../asset/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
