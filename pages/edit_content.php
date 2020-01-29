@@ -197,32 +197,32 @@ $data12=mysqli_fetch_assoc($result12);
                 <br>
                 <div class="form-group">
                     <label class="control-label">Name of Degree</label>
-                    <input maxlength="200" type="text" class="form-control" name="name_of_degree1" value="<?php echo $data3['name_of_degree']?>" placeholder="Enter Name of Degree" />
-                    <input maxlength="200" type="hidden" class="form-control" name="edu_id1" value="<?php echo $data3['edu_id']?>" placeholder="Enter Name of Degree" />
+                    <input maxlength="200" type="text" class="form-control" name="name_of_degree1" value="<?php if(isset($data3['name_of_degree'])) echo  $data3['name_of_degree']?>" placeholder="Enter Name of Degree" />
+                    <input maxlength="200" type="hidden" class="form-control" name="edu_id1" value="<?php if(isset($data3['edu_id'])) echo $data3['edu_id']?>" placeholder="Enter Name of Degree" />
                 </div>
                 <div class="form-group">
                     <label class="control-label">Major/Group/Subject</label>
-                    <input maxlength="200" type="text"  class="form-control" name="major1" value="<?php echo $data3['major']?>" placeholder="Enter Major/Group/Subject"  />
+                    <input maxlength="200" type="text"  class="form-control" name="major1" value="<?php if(isset($data3['major'])) echo $data3['major']?>" placeholder="Enter Major/Group/Subject"  />
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Institution*</label>
-                    <input maxlength="200" type="text" class="form-control" name="instituation1" value="<?php echo $data3['instituation']?>" placeholder="Enter Institution"  />
+                    <input maxlength="200" type="text" class="form-control" name="instituation1" value="<?php if(isset($data3['instituation'])) echo $data3['instituation']?>" placeholder="Enter Institution"  />
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Passing Year*</label>
-                    <input maxlength="200" type="text"  class="form-control" name="passing_year1" value="<?php echo $data3['passing_year']?>"  placeholder="Enter Passing Year"  />
+                    <input maxlength="200" type="text"  class="form-control" name="passing_year1" value="<?php if(isset($data3['passing_year'])) echo $data3['passing_year']?>"  placeholder="Enter Passing Year"  />
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">CGPA / Result</label>
-                    <input maxlength="200" type="text"  class="form-control" name="cgpa1" value="<?php echo $data3['cgpa']?>" placeholder="Enter CGPA / Resul"  />
+                    <input maxlength="200" type="text"  class="form-control" name="cgpa1" value="<?php if(isset($data3['cgpa'])) echo $data3['cgpa']?>" placeholder="Enter CGPA / Resul"  />
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Achievement(s)</label>
-                    <input maxlength="200" type="text"  class="form-control" name="achievement1" value="<?php echo $data3['achievement']?>" placeholder="Enter Achievement(s)"  />
+                    <input maxlength="200" type="text"  class="form-control" name="achievement1" value="<?php if(isset($data3['achievement'])) echo $data3['achievement']?>" placeholder="Enter Achievement(s)"  />
                 </div>
                 <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
             </div>
@@ -235,32 +235,32 @@ $data12=mysqli_fetch_assoc($result12);
                 <br>
                 <div class="form-group">
                     <label class="control-label">Name of Degree</label>
-                    <input maxlength="200" type="text" class="form-control" name="name_of_degree2" value="<?php echo $data4['name_of_degree']?>" placeholder="Enter Name of Degree" />
-                    <input maxlength="200" type="hidden" class="form-control" name="edu_id2" value="<?php echo $data4['edu_id']?>" placeholder="Enter Name of Degree" />
+                    <input maxlength="200" type="text" class="form-control" name="name_of_degree2" value="<?php if(isset($data4['name_of_degree'])) echo $data4['name_of_degree']?>" placeholder="Enter Name of Degree" />
+                    <input maxlength="200" type="hidden" class="form-control" name="edu_id2" value="<?php if(isset($data4['edu_id'])) echo $data4['edu_id']?>" placeholder="Enter Name of Degree" />
                 </div>
                 <div class="form-group">
                     <label class="control-label">Major/Group/Subject</label>
-                    <input maxlength="200" type="text"  class="form-control" name="major2" value="<?php echo $data4['major']?>"  placeholder="Enter Major/Group/Subject"  />
+                    <input maxlength="200" type="text"  class="form-control" name="major2" value="<?php if(isset($data4['major'])) echo $data4['major']?>"  placeholder="Enter Major/Group/Subject"  />
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Institution*</label>
-                    <input maxlength="200" type="text" class="form-control" name="instituation2" value="<?php echo $data4['instituation']?>"  placeholder="Enter Institution"  />
+                    <input maxlength="200" type="text" class="form-control" name="instituation2" value="<?php if(isset($data4['instituation'])) echo $data4['instituation']?>"  placeholder="Enter Institution"  />
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Passing Year*</label>
-                    <input maxlength="200" type="text"  class="form-control" name="passing_year2" value="<?php echo $data4['passing_year']?>"   placeholder="Enter Passing Year"  />
+                    <input maxlength="200" type="text"  class="form-control" name="passing_year2" value="<?php if(isset($data4['passing_year'])) echo $data4['passing_year']?>"   placeholder="Enter Passing Year"  />
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">CGPA / Result</label>
-                    <input maxlength="200" type="text"  class="form-control" name="cgpa2"  value="<?php echo $data4['cgpa']?>"  placeholder="Enter CGPA / Resul"  />
+                    <input maxlength="200" type="text"  class="form-control" name="cgpa2"  value="<?php if(isset($data4['cgpa'])) echo $data4['cgpa']?>"  placeholder="Enter CGPA / Resul"  />
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Achievement(s)</label>
-                    <input maxlength="200" type="text"  class="form-control" name="achievement2" value="<?php echo $data4['achievement']?>"  placeholder="Enter Achievement(s)"  />
+                    <input maxlength="200" type="text"  class="form-control" name="achievement2" value="<?php if(isset($data4['achievement'])) echo $data4['achievement']?>"  placeholder="Enter Achievement(s)"  />
                 </div>
                 <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
             </div>
@@ -313,32 +313,32 @@ $data12=mysqli_fetch_assoc($result12);
                     <br>
                     <div class="form-group">
                         <label class="control-label">Job Type * </label>
-                        <input maxlength="200" type="text"  class="form-control" name="job_title1" value="<?php echo $data6['job_title']?>" placeholder="Enter Job Type" />
-                        <input maxlength="200" type="hidden"  class="form-control" name="exp_id1" value="<?php echo $data6['exp_id']?>" placeholder="Enter Job Type" />
+                        <input maxlength="200" type="text"  class="form-control" name="job_title1" value="<?php if(isset($data6['job_title'])) echo $data6['job_title']?>" placeholder="Enter Job Type" />
+                        <input maxlength="200" type="hidden"  class="form-control" name="exp_id1" value="<?php if(isset($data6['exp_id'])) echo $data6['exp_id']?>" placeholder="Enter Job Type" />
                     </div>
                     <div class="form-group">
                         <label class="control-label">Title / Designation * </label>
-                        <input maxlength="200" type="text"  class="form-control" name="desig1" value="<?php echo $data6['desig']?>" placeholder="Enter Title/Designation"  />
+                        <input maxlength="200" type="text"  class="form-control" name="desig1" value="<?php if(isset($data6['desig'])) echo $data6['desig']?>" placeholder="Enter Title/Designation"  />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label">Company / Organization  </label>
-                        <input maxlength="200" type="text"  class="form-control" name="org1" value="<?php echo $data6['org']?>" placeholder="Enter Company / Organization" />
+                        <input maxlength="200" type="text"  class="form-control" name="org1" value="<?php if(isset($data6['org'])) echo $data6['org']?>" placeholder="Enter Company / Organization" />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label">Start Date</label>
-                        <input maxlength="200" type="date" class="form-control" name="sdate1"  value="<?php echo $data6['sdate']?>"  placeholder="Enter Start Date" />
+                        <input maxlength="200" type="date" class="form-control" name="sdate1"  value="<?php if(isset($data6['sdate'])) echo $data6['sdate']?>"  placeholder="Enter Start Date" />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label">End Date</label>
-                        <input maxlength="200" type="date"  class="form-control" name="edate1"  value="<?php echo $data6['edate']?>"   placeholder="Enter End Date" />
+                        <input maxlength="200" type="date"  class="form-control" name="edate1"  value="<?php if(isset($data6['edate'])) echo $data6['edate']?>"   placeholder="Enter End Date" />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label">Job Description</label>
-                        <input maxlength="200" type="text" class="form-control" name="job_des1" value="<?php echo $data6['job_des']?>"  placeholder="Enter Job Description" />
+                        <input maxlength="200" type="text" class="form-control" name="job_des1" value="<?php if(isset($data6['job_des'])) echo $data6['job_des']?>"  placeholder="Enter Job Description" />
                     </div>
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
                 </div>
@@ -350,32 +350,32 @@ $data12=mysqli_fetch_assoc($result12);
                     <br>
                     <div class="form-group">
                         <label class="control-label">Job Type * </label>
-                        <input maxlength="200" type="text"  class="form-control" name="job_title2" value="<?php echo $data7['job_title']?>" placeholder="Enter Job Type" />
-                        <input maxlength="200" type="hidden"  class="form-control" name="exp_id2" value="<?php echo $data7['exp_id']?>" placeholder="Enter Job Type" />
+                        <input maxlength="200" type="text"  class="form-control" name="job_title2" value="<?php if(isset($data7['job_title'])) echo $data7['job_title']?>" placeholder="Enter Job Type" />
+                        <input maxlength="200" type="hidden"  class="form-control" name="exp_id2" value="<?php if(isset($data7['exp_id'])) echo $data7['exp_id']?>" placeholder="Enter Job Type" />
                     </div>
                     <div class="form-group">
                         <label class="control-label">Title / Designation * </label>
-                        <input maxlength="200" type="text"  class="form-control" name="desig2" value="<?php echo $data7['desig']?>" placeholder="Enter Title/Designation"  />
+                        <input maxlength="200" type="text"  class="form-control" name="desig2" value="<?php if(isset($data7['desig'])) echo $data7['desig']?>" placeholder="Enter Title/Designation"  />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label">Company / Organization  </label>
-                        <input maxlength="200" type="text"  class="form-control" name="org2" value="<?php echo $data7['org']?>" placeholder="Enter Company / Organization" />
+                        <input maxlength="200" type="text"  class="form-control" name="org2" value="<?php if(isset($data7['org'])) echo $data7['org']?>" placeholder="Enter Company / Organization" />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label">Start Date</label>
-                        <input maxlength="200" type="date" class="form-control" name="sdate2"  value="<?php echo $data7['sdate']?>" placeholder="Enter Start Date" />
+                        <input maxlength="200" type="date" class="form-control" name="sdate2"  value="<?php if(isset($data7['sdate'])) echo $data7['sdate']?>" placeholder="Enter Start Date" />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label">End Date</label>
-                        <input maxlength="200" type="date"  class="form-control" name="edate2" value="<?php echo $data7['edate']?>" placeholder="Enter End Date" />
+                        <input maxlength="200" type="date"  class="form-control" name="edate2" value="<?php if(isset($data7['edate'])) echo $data7['edate']?>" placeholder="Enter End Date" />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label">Job Description</label>
-                        <input maxlength="200" type="text" class="form-control" name="job_des2" value="<?php echo $data7['job_des']?>" placeholder="Enter Job Description" />
+                        <input maxlength="200" type="text" class="form-control" name="job_des2" value="<?php if(isset($data7['job_des'])) echo $data7['job_des']?>" placeholder="Enter Job Description" />
                     </div>
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
                 </div>
@@ -420,8 +420,8 @@ $data12=mysqli_fetch_assoc($result12);
                     <br>
                     <div class="form-group">
                         <label class="control-label">Qualifications</label>
-                        <input maxlength="200" type="text" class="form-control" name="qualification2" value="<?php echo $data10['qualification']?>"  placeholder="Enter Qualifications" />
-                        <input maxlength="200" type="hidden" class="form-control" name="qua_id2" value="<?php echo $data10['qua_id']?>"  placeholder="Enter Qualifications" />
+                        <input maxlength="200" type="text" class="form-control" name="qualification2" value="<?php if(isset($data10['qualification'])) echo $data10['qualification']?>"  placeholder="Enter Qualifications" />
+                        <input maxlength="200" type="hidden" class="form-control" name="qua_id2" value="<?php if(isset($data10['qua_id'])) echo $data10['qua_id']?>"  placeholder="Enter Qualifications" />
                     </div>
 
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
