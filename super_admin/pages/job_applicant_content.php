@@ -45,7 +45,7 @@ $row2 = mysqli_fetch_assoc($result2);
                                 <?php unset($_SESSION['message']); } ?>
                         </div>
                         <div class="dataTable_wrapper">
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table class="table table-striped table-bordered table-hover" id="form_list">
                                 <thead>
                                 <tr>
                                     <th>Name</th>
@@ -105,5 +105,14 @@ $row2 = mysqli_fetch_assoc($result2);
 </div>
 
 
+<script type="text/javascript">
 
+
+    $(document).ready(function () {
+        $('#form_list').dataTable({
+            "order": [ 3, 'desc' ]
+        } );
+
+    });
+</script>
 
