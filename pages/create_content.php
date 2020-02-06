@@ -93,6 +93,12 @@ if(isset($_POST['sbtn']))
                     <label class="control-label"> Website/Blog </label>
                     <input maxlength="100" type="text"  name="web" class="form-control" placeholder="Enter Website/Blog" />
                 </div>
+                <div class="form-group">
+                    <label class="control-label"> Skills:  </label>
+                    <br>
+                    <select  class="form-control"  multiple="multiple" data-role="tagsinput" id="skills" name="skills[]">
+                    </select>
+                </div>
 
 
                 <div class="form-group">

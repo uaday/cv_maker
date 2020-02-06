@@ -43,6 +43,7 @@ and open the template in the editor.
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="asset/front_end/contact/js/ajax_jquery.js"></script>
     <script src="asset/front_end/contact/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
     <script>
         function printContent(el) {
             var restorepage = document.body.innerHTML;
@@ -432,6 +433,7 @@ if (isset($pages)) {
 }
 ?>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-tagsinput@0.7.1/dist/bootstrap-tagsinput.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {

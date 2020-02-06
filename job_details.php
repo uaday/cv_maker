@@ -85,12 +85,16 @@ if(isset($_POST['apply'])){
 
                 <div><?= $result['job_description']?></div>
 
+                <h6>Must have skills:  <?= $result['skill_tag']?></h6>
+
                 <form action="#" method="post">
+                    <br>
                     <input type="hidden" name="job_id" id="job_id" value="<?= $result['id']?>">
                     <input type="hidden" name="job_name" id="job_name" value="<?= $result['job_name']?>">
                     <input type="hidden" name="organization_id" id="organization_id" value="<?= $result2['id']?>">
                     <input type="hidden" name="organization_name" id="organization_name" value="<?= $result2['name']?>">
-                    <input class="btn btn-primary" type="submit" value="Apply" name="apply" >
+
+                    <input class="btn btn-primary form-control" type="submit" value="Apply" name="apply" >
                 </form>
 
             </div>

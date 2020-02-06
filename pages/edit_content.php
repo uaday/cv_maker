@@ -35,6 +35,9 @@ $result11=$obj_app->select_reference1_by_login_id($login_id);
 $data11=mysqli_fetch_assoc($result11);
 $result12=$obj_app->select_reference2_by_login_id($login_id);
 $data12=mysqli_fetch_assoc($result12);
+
+$want_to_see = explode(",", $data1['skills']);
+
 ?>
 
 <div class="container body">
@@ -118,6 +121,16 @@ $data12=mysqli_fetch_assoc($result12);
                 <div class="form-group">
                     <label class="control-label"> Website/Blog </label>
                     <input maxlength="100" type="text" required="required" name="web" value="<?php echo $data1['web']?>" class="form-control" placeholder="Enter Website/Blog" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label"> Skills </label>
+                    <br>
+                    <select  class="form-control"  multiple="multiple" data-role="tagsinput" id="skills" name="skills[]"  >
+                        <?php foreach ($want_to_see as $item){ ?>
+                        <option value="<?= $item?>"><?= $item?>></option>
+                        <?php }?>
+                        
+                    </select>
                 </div>
 
 

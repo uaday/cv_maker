@@ -31,6 +31,12 @@ if ($login_id == NULL) {
 $result=$obj_app->select_basic($login_id);
 $row=  mysqli_fetch_assoc($result);
 
+
+if(isset($_SESSION['applying_job_id'])){
+    $resultSup=$obj_app->select_job($_SESSION['applying_job_id']);
+    $rowSup=  mysqli_fetch_assoc($resultSup);
+}
+
 $resut_education=$obj_app->select_education($login_id);
 $row_education=  mysqli_fetch_assoc($resut_education);
 
@@ -95,11 +101,24 @@ if($row_education){
 }if($row_qualification2){
     $rating = $rating+ 5;
 }
+$visible = true;
+if(isset($_SESSION['applying_job_id'])){
+    $want_to_see = explode(",", $row['skills']);
+    $current_user_can_see = explode(",", $rowSup['skill_tag']);
+    $length = sizeof($current_user_can_see);
+    $show = sizeof(array_intersect($want_to_see, $current_user_can_see));
+    if($length<= $show){
+        $visible = true;
+    }else{
+        $visible = false;
+    }
 
+}
 
 
 
 if(isset($_POST['apply_job'])){
+
     $obj_app->add_job_application($_SESSION['applying_job_id'], 't1', $rating);
 }
 ?>
@@ -385,13 +404,16 @@ if(isset($_POST['apply_job'])){
 </div>
 <?php }?>
 <div class="row text-center">
-    <?php if(isset($_SESSION['applying_job_id']) && isset($_SESSION['applying_organization_id']) && !isset($_SESSION['type'])){?>
+    <?php if(isset($_SESSION['applying_job_id']) && isset($_SESSION['applying_organization_id']) && !isset($_SESSION['type']) && $visible){?>
         <h3>Apply <?= $_SESSION['applying_job_name']?> job at <?= $_SESSION['applying_organization_name']?> using this cv.</h3>
         <form action="#" method="post">
             <button type="submit" name="apply_job" value="apply_job" class="btn btn-primary">APPLY</button>
         </form>
         <br>
         <br>
+    <?php }?>
+    <?php if($visible == false) {?>
+        <h3>Your skill set is not right fit for this job!, Please update your skill</h3>
     <?php }?>
 </div>
 <div class="row">
@@ -476,6 +498,10 @@ if(isset($_POST['apply_job'])){
                                 <br></p><br>
                         <?php  } ?>
 
+                        <div >
+                            <h4><strong>Skills:</strong></h4><br>
+                        </div>
+                        <h5><?php echo  $row['skills'] ?></h5>
                         <div >
                             <h4><strong>Achievements:</strong></h4><br>
                         </div>

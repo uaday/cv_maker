@@ -43,7 +43,8 @@ class Application
                             move_uploaded_file($files['photo']['tmp_name'], $target_files);
 
                         }
-                        $sql = "INSERT INTO tbl_basic(login_id,first_name,last_name,email,phone,web,gender,dob,address,photo) VALUES ('$data10','$data[fname]','$data[lname]','$data[email]','$data[phone]','$data[web]','$data[gender]','$data[dob]','$data[address]','$target_files') ";
+                        $skills = implode(",", $data['skills']);
+                        $sql = "INSERT INTO tbl_basic(login_id,first_name,last_name,email,phone,web,gender,dob,address,photo,skills) VALUES ('$data10','$data[fname]','$data[lname]','$data[email]','$data[phone]','$data[web]','$data[gender]','$data[dob]','$data[address]','$target_files','$skills') ";
                         mysqli_query($this->conn,$sql);
                         $sql2="INSERT INTO tbl_education(name_of_degree,major,instituation,	passing_year,cgpa,achievement,login_id) VALUES ('$data[name_of_degree]','$data[major]','$data[instituation]','$data[passing_year]','$data[cgpa]','$data[achievement]','$data10')";
                         mysqli_query($this->conn,$sql2);
@@ -208,7 +209,8 @@ class Application
                                 move_uploaded_file($files['photo']['tmp_name'], $target_files);
 
                             }
-                            $sql="UPDATE tbl_basic SET first_name='$data[fname]',last_name='$data[lname]',email='$data[email]',phone='$data[phone]',web='$data[web]',gender='$data[gender]',dob='$data[dob]',address='$data[address]',photo='$target_files' WHERE user_id='$data[user_id]'";
+                            $skills = implode(",", $data['skills']);
+                            $sql="UPDATE tbl_basic SET first_name='$data[fname]',last_name='$data[lname]',email='$data[email]',phone='$data[phone]',web='$data[web]',gender='$data[gender]',dob='$data[dob]',address='$data[address]',photo='$target_files',skills='$skills' WHERE user_id='$data[user_id]'";
                             mysqli_query($this->conn,$sql);
                         }
                     }
@@ -219,7 +221,8 @@ class Application
         }
         else
         {
-            $sql="UPDATE tbl_basic SET first_name='$data[fname]',last_name='$data[lname]',email='$data[email]',phone='$data[phone]',web='$data[web]',gender='$data[gender]',dob='$data[dob]',address='$data[address]' WHERE user_id='$data[user_id]'";
+            $skills = implode(",", $data['skills']);
+            $sql="UPDATE tbl_basic SET first_name='$data[fname]',last_name='$data[lname]',email='$data[email]',phone='$data[phone]',web='$data[web]',gender='$data[gender]',dob='$data[dob]',address='$data[address]',skills='$skills' WHERE user_id='$data[user_id]'";
             mysqli_query($this->conn,$sql);
         }
         $sql2="UPDATE tbl_education SET name_of_degree='$data[name_of_degree]',major='$data[major]',instituation='$data[instituation]',passing_year='$data[passing_year]',cgpa='$data[cgpa]',achievement='$data[achievement]' WHERE edu_id='$data[edu_id]'";

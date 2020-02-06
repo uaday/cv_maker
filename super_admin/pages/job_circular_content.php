@@ -147,7 +147,7 @@ $result = $obj_sup->select_all_job_circular();
                         <label for="skills" class="col-form-label">Required Skills:</label>
                         <br>
                         <select class="form-control"  multiple="multiple" data-role="tagsinput" id="skills" name="skills[]">
-                        </select
+                        </select>
                     </div>
 
                     <div class="form-group">

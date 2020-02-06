@@ -17,6 +17,7 @@
           href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css'>
     <link rel="stylesheet" href="asset/front_end/css/style.css">
     <link rel="icon" href="asset\front_end\title_logo\4.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet" />
 </head>
 
 <body id="bb">
@@ -41,7 +42,7 @@
 <canvas id="bubble"></canvas>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://code.jquery.com/ui/1.10.3/jquery-ui.js'></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-tagsinput@0.7.1/dist/bootstrap-tagsinput.min.js"></script>
 <script src="asset/front_end/js/index.js"></script>
 
 
